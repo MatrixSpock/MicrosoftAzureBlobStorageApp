@@ -14,7 +14,7 @@ namespace WiredBrainCoffee.Storage
             _connectionString = connectionString;
         }
 
-        public async Task UploadVideoAsync(byte[] videoByteArray, string blobName)
+        public async Task<CloudBlockBlob> UploadVideoAsync(byte[] videoByteArray, string blobName)
         {
             var cloudStorageAccount = CloudStorageAccount.Parse(_connectionString);
 
@@ -28,6 +28,8 @@ namespace WiredBrainCoffee.Storage
             var cloudBlockBlob = cloudBlobContainter.GetBlockBlobReference(blobName);
 
             await cloudBlockBlob.UploadFromByteArrayAsync(videoByteArray, 0, videoByteArray.Length);
+
+            return cloudBlockBlob;
 
         }
 

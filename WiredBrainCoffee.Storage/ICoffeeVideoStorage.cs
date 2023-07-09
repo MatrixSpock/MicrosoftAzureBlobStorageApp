@@ -1,10 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.Azure.Storage.Blob;
+using System.Threading.Tasks;
 
 namespace WiredBrainCoffee.Storage
 {
   public interface ICoffeeVideoStorage
   {
-    Task UploadVideoAsync(byte[] videoByteArray, string blobname);
+    Task<CloudBlockBlob> UploadVideoAsync(byte[] videoByteArray, string blobname);
     Task<bool> CheckIfBlobExistsAsync(string blobName);
   }
 }
