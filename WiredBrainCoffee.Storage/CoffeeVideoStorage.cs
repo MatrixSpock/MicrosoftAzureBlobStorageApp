@@ -8,22 +8,13 @@ namespace WiredBrainCoffee.Storage
     {
         private readonly string _connectionString;
         private readonly string _containerNameVideos = "coffeevideos";
-
         public CoffeeVideoStorage(string connectionString)
         {
             _connectionString = connectionString;
         }
-
         public async Task<CloudBlockBlob> UploadVideoAsync(byte[] videoByteArray, string blobName)
         {
-            var cloudStorageAccount = CloudStorageAccount.Parse(_connectionString);
-
-            var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
-
-            var cloudBlobContainter = cloudBlobClient.GetContainerReference(_containerNameVideos);
-
-            await cloudBlobContainter.CreateIfNotExistsAsync(
-                BlobContainerPublicAccessType.Blob, null, null);
+            var cloudBlobContainter = await GetCoffeeVideosContainerAsync();
 
             var cloudBlockBlob = cloudBlobContainter.GetBlockBlobReference(blobName);
 
@@ -32,11 +23,24 @@ namespace WiredBrainCoffee.Storage
             return cloudBlockBlob;
 
         }
-
         public async Task<bool> CheckIfBlobExistsAsync(string blobName)
         {
-            // TODO: Check if the blob exists in Blob Storage
-            return false;
+            var cloudBlobContainter = await GetCoffeeVideosContainerAsync();
+
+            var cloudBlockBlob = cloudBlobContainter.GetBlockBlobReference(blobName);
+
+            return await cloudBlockBlob.ExistsAsync();
+        }
+        private async Task<CloudBlobContainer> GetCoffeeVideosContainerAsync()
+        {
+            var cloudStorageAccount = CloudStorageAccount.Parse(_connectionString);
+
+            var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
+
+            var cloudBlobContainter = cloudBlobClient.GetContainerReference(_containerNameVideos);
+            await cloudBlobContainter.CreateIfNotExistsAsync(
+                BlobContainerPublicAccessType.Blob, null, null);
+            return cloudBlobContainter;
         }
     }
 }
