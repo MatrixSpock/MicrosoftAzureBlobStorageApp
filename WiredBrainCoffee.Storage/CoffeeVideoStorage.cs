@@ -7,7 +7,7 @@ namespace WiredBrainCoffee.Storage
     public class CoffeeVideoStorage : ICoffeeVideoStorage
     {
         private readonly string _connectionString;
-        private readonly string _containerNameVideos;
+        private readonly string _containerNameVideos = "coffeevideos";
 
         public CoffeeVideoStorage(string connectionString)
         {
