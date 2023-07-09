@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using WiredBrainCoffee.AdminApp.Service;
+using WiredBrainCoffee.AdminApp.Settings;
 using WiredBrainCoffee.AdminApp.View;
 using WiredBrainCoffee.AdminApp.ViewModel;
 using WiredBrainCoffee.Storage;
@@ -15,7 +16,8 @@ namespace WiredBrainCoffee.AdminApp.Startup
       builder.RegisterType<MainViewModel>().AsSelf().SingleInstance();
       builder.RegisterType<CoffeeVideoViewModel>().AsSelf();
 
-      builder.RegisterType<CoffeeVideoStorage>().As<ICoffeeVideoStorage>();
+      builder.RegisterType<CoffeeVideoStorage>().As<ICoffeeVideoStorage>()
+                .WithParameter("connectionString", AppSettings.ConnectionString);
 
       builder.RegisterType<AddCoffeeVideoDialog>().AsSelf();
       builder.RegisterType<AddCoffeeVideoDialogViewModel>().As<IAddCoffeeVideoDialogViewModel>().AsSelf();

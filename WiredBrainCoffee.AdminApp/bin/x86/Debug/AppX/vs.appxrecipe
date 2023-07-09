@@ -30,17 +30,33 @@
     <AppXManifest Include="C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-07-08T06:09:07.597</Modified>
+      <Modified>2023-07-09T20:07:33.109</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\WiredBrainCoffee.AdminApp.exe">
       <PackagePath>entrypoint\WiredBrainCoffee.AdminApp.exe</PackagePath>
-      <Modified>2023-07-08T06:09:03.808</Modified>
+      <Modified>2023-07-09T20:07:32.451</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\autofac\4.9.3\lib\netstandard2.0\Autofac.dll">
       <PackagePath>Autofac.dll</PackagePath>
       <Modified>2019-07-18T15:01:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\microsoft.azure.keyvault.core\2.0.4\lib\netstandard1.5\Microsoft.Azure.KeyVault.Core.dll">
+      <PackagePath>Microsoft.Azure.KeyVault.Core.dll</PackagePath>
+      <Modified>2016-12-07T09:37:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\microsoft.azure.storage.blob\11.2.3\lib\netstandard2.0\Microsoft.Azure.Storage.Blob.dll">
+      <PackagePath>Microsoft.Azure.Storage.Blob.dll</PackagePath>
+      <Modified>2021-04-15T17:12:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\microsoft.azure.storage.common\11.2.3\lib\netstandard2.0\Microsoft.Azure.Storage.Common.dll">
+      <PackagePath>Microsoft.Azure.Storage.Common.dll</PackagePath>
+      <Modified>2021-04-15T17:12:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\newtonsoft.json\10.0.2\lib\netstandard1.3\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2017-04-02T17:46:32.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.8\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -48,7 +64,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.Storage\bin\Debug\netstandard2.0\WiredBrainCoffee.Storage.dll">
       <PackagePath>WiredBrainCoffee.Storage.dll</PackagePath>
-      <Modified>2023-07-08T06:05:02.703</Modified>
+      <Modified>2023-07-09T20:06:24.398</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.22000.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
@@ -127,19 +143,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-07-08T06:09:03.643</Modified>
+      <Modified>2023-07-09T20:07:32.369</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\View\AddCoffeeVideoDialog.xbf">
       <PackagePath>View\AddCoffeeVideoDialog.xbf</PackagePath>
-      <Modified>2023-07-08T06:09:03.644</Modified>
+      <Modified>2023-07-09T20:07:32.369</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\View\CoffeeVideoView.xbf">
       <PackagePath>View\CoffeeVideoView.xbf</PackagePath>
-      <Modified>2023-07-08T06:09:03.644</Modified>
+      <Modified>2023-07-09T20:07:32.369</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2023-07-08T06:09:03.644</Modified>
+      <Modified>2023-07-09T20:07:32.369</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22000.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -147,11 +163,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-07-08T06:09:05.745</Modified>
+      <Modified>2023-07-09T20:06:28.637</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\Core\WiredBrainCoffee.AdminApp.exe">
       <PackagePath>WiredBrainCoffee.AdminApp.exe</PackagePath>
-      <Modified>2023-07-08T06:09:07.590</Modified>
+      <Modified>2023-07-09T20:07:33.106</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

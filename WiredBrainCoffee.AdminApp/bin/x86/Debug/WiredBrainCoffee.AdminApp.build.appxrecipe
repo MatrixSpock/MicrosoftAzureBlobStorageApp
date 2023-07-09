@@ -31,6 +31,18 @@
     <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\autofac\4.9.3\lib\netstandard2.0\Autofac.dll">
       <PackagePath>Autofac.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\microsoft.azure.keyvault.core\2.0.4\lib\netstandard1.5\Microsoft.Azure.KeyVault.Core.dll">
+      <PackagePath>Microsoft.Azure.KeyVault.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\microsoft.azure.storage.blob\11.2.3\lib\netstandard2.0\Microsoft.Azure.Storage.Blob.dll">
+      <PackagePath>Microsoft.Azure.Storage.Blob.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\microsoft.azure.storage.common\11.2.3\lib\netstandard2.0\Microsoft.Azure.Storage.Common.dll">
+      <PackagePath>Microsoft.Azure.Storage.Common.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\newtonsoft.json\10.0.2\lib\netstandard1.3\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jibar\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.8\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
     </AppxPackagedFile>

@@ -123,19 +123,15 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
-            "Azure.Storage.Blobs": {
+            "Microsoft.Azure.Storage.Blob": {
               "target": "Package",
-              "version": "[12.16.0, )"
+              "version": "[11.2.3, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
-            },
-            "WindowsAzure.Storage": {
-              "target": "Package",
-              "version": "[9.3.3, )"
             }
           },
           "imports": [

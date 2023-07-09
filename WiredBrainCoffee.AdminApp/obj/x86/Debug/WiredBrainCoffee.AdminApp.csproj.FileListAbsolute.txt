@@ -98,3 +98,7 @@ C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\
 C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637935274560000000.json
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\Microsoft.Azure.Storage.Blob.dll
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\Microsoft.Azure.Storage.Common.dll
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\bin\x86\Debug\Newtonsoft.Json.dll

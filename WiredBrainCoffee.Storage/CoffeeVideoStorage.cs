@@ -1,13 +1,13 @@
-﻿using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+﻿using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
 using System.Threading.Tasks;
 
 namespace WiredBrainCoffee.Storage
 {
     public class CoffeeVideoStorage : ICoffeeVideoStorage
     {
-        private readonly string _containerNameVideos = "coffeevideos";
         private readonly string _connectionString;
+        private readonly string _containerNameVideos;
 
         public CoffeeVideoStorage(string connectionString)
         {
@@ -20,12 +20,12 @@ namespace WiredBrainCoffee.Storage
 
             var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
 
-            var cloudBlobContainer = cloudBlobClient.GetContainerReference(_containerNameVideos);
-            //Blob grants public read access to our blob
-            await cloudBlobContainer.CreateIfNotExistsAsync(
+            var cloudBlobContainter = cloudBlobClient.GetContainerReference(_containerNameVideos);
+
+            await cloudBlobContainter.CreateIfNotExistsAsync(
                 BlobContainerPublicAccessType.Blob, null, null);
 
-            var cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(blobName);
+            var cloudBlockBlob = cloudBlobContainter.GetBlockBlobReference(blobName);
 
             await cloudBlockBlob.UploadFromByteArrayAsync(videoByteArray, 0, videoByteArray.Length);
 
