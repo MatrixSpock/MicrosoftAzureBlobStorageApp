@@ -1,0 +1,1 @@
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.AdminApp\WiredBrainCoffee.AdminApp.csproj;x86

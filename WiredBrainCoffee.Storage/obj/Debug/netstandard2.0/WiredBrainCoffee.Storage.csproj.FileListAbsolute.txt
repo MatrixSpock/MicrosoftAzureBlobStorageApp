@@ -1,0 +1,10 @@
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.Storage\bin\Debug\netstandard2.0\WiredBrainCoffee.Storage.deps.json
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.Storage\bin\Debug\netstandard2.0\WiredBrainCoffee.Storage.dll
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.Storage\bin\Debug\netstandard2.0\WiredBrainCoffee.Storage.pdb
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.Storage\obj\Debug\netstandard2.0\WiredBrainCoffee.Storage.csproj.AssemblyReference.cache
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.Storage\obj\Debug\netstandard2.0\WiredBrainCoffee.Storage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.Storage\obj\Debug\netstandard2.0\WiredBrainCoffee.Storage.AssemblyInfoInputs.cache
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.Storage\obj\Debug\netstandard2.0\WiredBrainCoffee.Storage.AssemblyInfo.cs
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.Storage\obj\Debug\netstandard2.0\WiredBrainCoffee.Storage.csproj.CoreCompileInputs.cache
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.Storage\obj\Debug\netstandard2.0\WiredBrainCoffee.Storage.dll
+C:\Users\jibar\Documents\GIT_new\Microsoft Azure Blob Storage - PluralSight App\WiredBrainCoffee.Storage\obj\Debug\netstandard2.0\WiredBrainCoffee.Storage.pdb
