@@ -17,7 +17,7 @@ namespace WiredBrainCoffee.AdminApp.Startup
       builder.RegisterType<CoffeeVideoViewModel>().AsSelf();
 
       builder.RegisterType<CoffeeVideoStorage>().As<ICoffeeVideoStorage>()
-                .WithParameter("connectionString", AppSettings.ConnectionString);
+        .WithParameter("connectionString",AppSettings.ConnectionString);
 
       builder.RegisterType<AddCoffeeVideoDialog>().AsSelf();
       builder.RegisterType<AddCoffeeVideoDialogViewModel>().As<IAddCoffeeVideoDialogViewModel>().AsSelf();
