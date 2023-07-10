@@ -1,6 +1,7 @@
 ﻿using Microsoft.Azure.Storage;
 using Microsoft.Azure.Storage.Blob;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace WiredBrainCoffee.Storage
@@ -39,12 +40,14 @@ namespace WiredBrainCoffee.Storage
 
     public async Task<IEnumerable<CloudBlockBlob>> ListVideoBlobsAsync(string prefix = null)
     {
-      var cloudBlockBlobs = new List<CloudBlockBlob>();
-      var cloudBlobContainer = await GetCoffeeVideosContainerAsync();
-      
-      // TODO: Load the list of videos from Blob Storage
+        var cloudBlockBlobs = new List<CloudBlockBlob>();
+        var cloudBlobContainer = await GetCoffeeVideosContainerAsync();
 
-      return cloudBlockBlobs;
+        var blobResultSegment = await cloudBlobContainer.ListBlobsSegmentedAsync(null);
+
+        cloudBlockBlobs.AddRange(blobResultSegment.Results.OfType<CloudBlockBlob>());
+
+        return cloudBlockBlobs;
     }
 
     private async Task<CloudBlobContainer> GetCoffeeVideosContainerAsync()
