@@ -13,6 +13,8 @@ namespace WiredBrainCoffee.AdminApp.ViewModel
     bool DialogResultIsOk { get; }
     byte[] BlobByteArray { get; }
     string BlobName { get; }
+    string BlobTitle { get; }
+    string BlobDescription { get; }
   }
   public class AddCoffeeVideoDialogViewModel : ViewModelBase, IAddCoffeeVideoDialogViewModel
   {
@@ -46,6 +48,10 @@ namespace WiredBrainCoffee.AdminApp.ViewModel
     public bool IsPrimaryButtonEnabled => BlobByteArray != null && !string.IsNullOrWhiteSpace(BlobNameWithoutExtension);
 
     public string BlobName => BlobNameWithoutExtension + ".mp4";
+
+    public string BlobTitle { get; set; }
+
+    public string BlobDescription { get; set; }
 
     public bool DialogResultIsOk { get; set; }
 
@@ -92,7 +98,7 @@ namespace WiredBrainCoffee.AdminApp.ViewModel
           DialogResultIsOk = true;
         }
       }
-      catch(Exception ex)
+      catch (Exception ex)
       {
         await _messageDialogService.ShowInfoDialogAsync(ex.Message, "Error");
       }

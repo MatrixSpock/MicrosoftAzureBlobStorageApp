@@ -3,7 +3,7 @@ using WiredBrainCoffee.Storage;
 using System;
 using System.Collections.ObjectModel;
 using WiredBrainCoffee.AdminApp.Service;
-using Microsoft.Azure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace WiredBrainCoffee.AdminApp.ViewModel
 {
@@ -27,7 +27,7 @@ namespace WiredBrainCoffee.AdminApp.ViewModel
     public MainViewModel(ICoffeeVideoStorage coffeeVideoStorage,
       IAddCoffeeVideoDialogService addCoffeeVideoDialogService,
       IMessageDialogService messageDialogService,
-      Func<CloudBlockBlob,CoffeeVideoViewModel> coffeeVideoViewModelCreator)
+      Func<CloudBlockBlob, CoffeeVideoViewModel> coffeeVideoViewModelCreator)
     {
       _coffeeVideoStorage = coffeeVideoStorage;
       _addCoffeeVideoDialogService = addCoffeeVideoDialogService;
@@ -118,7 +118,9 @@ namespace WiredBrainCoffee.AdminApp.ViewModel
 
           var cloudBlockBlob = await _coffeeVideoStorage.UploadVideoAsync(
               dialogData.BlobByteArray,
-              dialogData.BlobName);
+              dialogData.BlobName,
+              dialogData.BlobTitle,
+              dialogData.BlobDescription);
 
           var coffeeVideoViewModel = _coffeeVideoViewModelCreator(cloudBlockBlob);
           CoffeeVideos.Add(coffeeVideoViewModel);

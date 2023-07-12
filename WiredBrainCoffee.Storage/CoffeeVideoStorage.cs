@@ -1,5 +1,5 @@
-﻿using Microsoft.Azure.Storage;
-using Microsoft.Azure.Storage.Blob;
+﻿using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,14 +11,18 @@ namespace WiredBrainCoffee.Storage
   {
     private readonly string _containerNameVideos = "coffeevideos";
     private readonly string _connectionString;
+    private readonly string _metadataKeyTitle = "title";
+    private readonly string _metadataKeyDescription = "description";
 
     public CoffeeVideoStorage(string connectionString)
     {
       _connectionString = connectionString;
     }
 
-    public async Task<CloudBlockBlob> UploadVideoAsync(byte[] videoByteArray, string blobName)
+    public async Task<CloudBlockBlob> UploadVideoAsync(
+      byte[] videoByteArray, string blobName, string title, string description)
     {
+      // TODO: Store title and description on the Blob
       var cloudBlobContainer = await GetCoffeeVideosContainerAsync();
 
       var cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(blobName);
@@ -47,6 +51,7 @@ namespace WiredBrainCoffee.Storage
       BlobContinuationToken token = null;
       do
       {
+        // TODO: Ensure metadata is fetched for the listed Blobs
         var blobResultSegment =
           await cloudBlobContainer.ListBlobsSegmentedAsync(prefix, token);
         token = blobResultSegment.ContinuationToken;
@@ -59,12 +64,29 @@ namespace WiredBrainCoffee.Storage
 
     public async Task DownloadVideoAsync(CloudBlockBlob cloudBlockBlob, Stream targetStream)
     {
-        await cloudBlockBlob.DownloadToStreamAsync(targetStream);
+      await cloudBlockBlob.DownloadToStreamAsync(targetStream);
     }
 
     public async Task DeleteVideoAsync(CloudBlockBlob cloudBlockBlob)
     {
-        await cloudBlockBlob.DeleteAsync();
+      await cloudBlockBlob.DeleteAsync();
+    }
+
+    public async Task UpdateMetadataAsync(
+      CloudBlockBlob cloudBlockBlob, string title, string description)
+    {
+      // TODO: Store title and description as metadata on the Blob
+    }
+
+    public async Task ReloadMetadataAsync(CloudBlockBlob cloudBlockBlob)
+    {
+      // TODO: Reload metadata for the Blob
+    }
+
+    public (string title, string description) GetBlobMetadata(CloudBlockBlob cloudBlockBlob)
+    {
+      // TODO: Read title and description from the Blob's metadata
+      return ("", "");
     }
 
     private async Task<CloudBlobContainer> GetCoffeeVideosContainerAsync()
