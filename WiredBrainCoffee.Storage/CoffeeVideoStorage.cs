@@ -51,7 +51,6 @@ namespace WiredBrainCoffee.Storage
       BlobContinuationToken token = null;
       do
       {
-        // TODO: Ensure metadata is fetched for the listed Blobs
         var blobResultSegment =
           await cloudBlobContainer.ListBlobsSegmentedAsync(prefix, token);
         token = blobResultSegment.ContinuationToken;
@@ -80,13 +79,17 @@ namespace WiredBrainCoffee.Storage
 
     public async Task ReloadMetadataAsync(CloudBlockBlob cloudBlockBlob)
     {
-      // TODO: Reload metadata for the Blob
+            await cloudBlockBlob.FetchAttributesAsync();
     }
 
     public (string title, string description) GetBlobMetadata(CloudBlockBlob cloudBlockBlob)
     {
-      // TODO: Read title and description from the Blob's metadata
-      return ("", "");
+      return (cloudBlockBlob.Metadata.ContainsKey(_metadataKeyTitle)
+                ? cloudBlockBlob.Metadata[_metadataKeyTitle]
+                : ""
+                , cloudBlockBlob.Metadata.ContainsKey(_metadataKeyDescription)
+                ? cloudBlockBlob.Metadata[_metadataKeyDescription]
+                : "");
     }
 
     private async Task<CloudBlobContainer> GetCoffeeVideosContainerAsync()
