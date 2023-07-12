@@ -59,12 +59,12 @@ namespace WiredBrainCoffee.Storage
 
     public async Task DownloadVideoAsync(CloudBlockBlob cloudBlockBlob, Stream targetStream)
     {
-      // TODO: Download the Blob and write it to the targetStream
+        await cloudBlockBlob.DownloadToStreamAsync(targetStream);
     }
 
     public async Task DeleteVideoAsync(CloudBlockBlob cloudBlockBlob)
     {
-      // TODO: Delete the Blob from Blob Storage
+        await cloudBlockBlob.DeleteAsync();
     }
 
     private async Task<CloudBlobContainer> GetCoffeeVideosContainerAsync()
