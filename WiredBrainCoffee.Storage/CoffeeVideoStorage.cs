@@ -58,6 +58,11 @@ namespace WiredBrainCoffee.Storage
       }
       while (token != null);
 
+      foreach(var cloudBlockBlob in cloudBlockBlobs)
+      {
+        await cloudBlockBlob.FetchAttributesAsync();
+      }
+
       return cloudBlockBlobs;
     }
 
