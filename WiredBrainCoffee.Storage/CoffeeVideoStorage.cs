@@ -22,12 +22,15 @@ namespace WiredBrainCoffee.Storage
     public async Task<CloudBlockBlob> UploadVideoAsync(
       byte[] videoByteArray, string blobName, string title, string description)
     {
-      // TODO: Store title and description on the Blob
+
       var cloudBlobContainer = await GetCoffeeVideosContainerAsync();
 
       var cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(blobName);
 
       cloudBlockBlob.Properties.ContentType = "video/mp4";
+
+      SetMetadata(cloudBlockBlob, _metadataKeyTitle, title);
+      SetMetadata(cloudBlockBlob, _metadataKeyDescription, description);
 
       await cloudBlockBlob.UploadFromByteArrayAsync(videoByteArray, 0, videoByteArray.Length);
 
