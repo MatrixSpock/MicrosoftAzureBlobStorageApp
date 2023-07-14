@@ -72,9 +72,12 @@ namespace WiredBrainCoffee.Storage
     }
 
     public async Task UpdateMetadataAsync(
-      CloudBlockBlob cloudBlockBlob, string title, string description)
+    CloudBlockBlob cloudBlockBlob, string title, string description)
     {
-      // TODO: Store title and description as metadata on the Blob
+        SetMetadata(cloudBlockBlob, _metadataKeyTitle, title);
+        SetMetadata(cloudBlockBlob, _metadataKeyDescription, description);
+
+        await cloudBlockBlob.SetMetadataAsync();
     }
 
     public async Task ReloadMetadataAsync(CloudBlockBlob cloudBlockBlob)
@@ -103,5 +106,20 @@ namespace WiredBrainCoffee.Storage
         BlobContainerPublicAccessType.Blob, null, null);
       return cloudBlobContainer;
     }
-  }
+
+    private void SetMetadata(CloudBlockBlob cloudBlockBlob, string key, string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            if (cloudBlockBlob.Metadata.ContainsKey(key))
+            {
+                cloudBlockBlob.Metadata.Remove(key);
+            }
+        }
+        else
+        {
+            cloudBlockBlob.Metadata[key] = value;
+        }
+    }
+    }
 }
