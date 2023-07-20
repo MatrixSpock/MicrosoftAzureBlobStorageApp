@@ -19,5 +19,6 @@ namespace WiredBrainCoffee.Storage
     Task UpdateMetadataAsync(CloudBlockBlob cloudBlockBlob, string title, string description);
     Task ReloadMetadataAsync(CloudBlockBlob cloudBlockBlob);
     (string title, string description) GetBlobMetadata(CloudBlockBlob cloudBlockBlob);
-  }
+        string GetBlobUriWithSasToken(CloudBlockBlob cloudBlockBlob);
+    }
 }
