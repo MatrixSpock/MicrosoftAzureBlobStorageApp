@@ -3,7 +3,7 @@ using WiredBrainCoffee.Storage;
 using System;
 using System.Collections.ObjectModel;
 using WiredBrainCoffee.AdminApp.Service;
-using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure.Storage.Blob;
 
 namespace WiredBrainCoffee.AdminApp.ViewModel
 {

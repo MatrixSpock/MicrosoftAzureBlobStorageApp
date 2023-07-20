@@ -1,5 +1,5 @@
-﻿using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+﻿using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,7 +22,6 @@ namespace WiredBrainCoffee.Storage
     public async Task<CloudBlockBlob> UploadVideoAsync(
       byte[] videoByteArray, string blobName, string title, string description)
     {
-
       var cloudBlobContainer = await GetCoffeeVideosContainerAsync();
 
       var cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(blobName);
@@ -55,7 +54,8 @@ namespace WiredBrainCoffee.Storage
       do
       {
         var blobResultSegment =
-          await cloudBlobContainer.ListBlobsSegmentedAsync(prefix, true, BlobListingDetails.Metadata, null, token, null, null);
+          await cloudBlobContainer.ListBlobsSegmentedAsync(prefix, true,
+            BlobListingDetails.Metadata, null, token, null, null);
         token = blobResultSegment.ContinuationToken;
         cloudBlockBlobs.AddRange(blobResultSegment.Results.OfType<CloudBlockBlob>());
       }
@@ -75,27 +75,27 @@ namespace WiredBrainCoffee.Storage
     }
 
     public async Task UpdateMetadataAsync(
-    CloudBlockBlob cloudBlockBlob, string title, string description)
+      CloudBlockBlob cloudBlockBlob, string title, string description)
     {
-        SetMetadata(cloudBlockBlob, _metadataKeyTitle, title);
-        SetMetadata(cloudBlockBlob, _metadataKeyDescription, description);
+      SetMetadata(cloudBlockBlob,_metadataKeyTitle, title);
+      SetMetadata(cloudBlockBlob, _metadataKeyDescription, description);
 
-        await cloudBlockBlob.SetMetadataAsync();
+      await cloudBlockBlob.SetMetadataAsync();
     }
 
     public async Task ReloadMetadataAsync(CloudBlockBlob cloudBlockBlob)
     {
-            await cloudBlockBlob.FetchAttributesAsync();
+      await cloudBlockBlob.FetchAttributesAsync();
     }
 
     public (string title, string description) GetBlobMetadata(CloudBlockBlob cloudBlockBlob)
     {
       return (cloudBlockBlob.Metadata.ContainsKey(_metadataKeyTitle)
-                ? cloudBlockBlob.Metadata[_metadataKeyTitle]
-                : ""
-                , cloudBlockBlob.Metadata.ContainsKey(_metadataKeyDescription)
-                ? cloudBlockBlob.Metadata[_metadataKeyDescription]
-                : "");
+               ? cloudBlockBlob.Metadata[_metadataKeyTitle]
+               : ""
+            , cloudBlockBlob.Metadata.ContainsKey(_metadataKeyDescription)
+               ? cloudBlockBlob.Metadata[_metadataKeyDescription]
+               : "");
     }
 
     private async Task<CloudBlobContainer> GetCoffeeVideosContainerAsync()
@@ -105,24 +105,23 @@ namespace WiredBrainCoffee.Storage
       var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
 
       var cloudBlobContainer = cloudBlobClient.GetContainerReference(_containerNameVideos);
-      await cloudBlobContainer.CreateIfNotExistsAsync(
-        BlobContainerPublicAccessType.Blob, null, null);
+      await cloudBlobContainer.CreateIfNotExistsAsync();
       return cloudBlobContainer;
     }
 
-    private void SetMetadata(CloudBlockBlob cloudBlockBlob, string key, string value)
+    private static void SetMetadata(CloudBlockBlob cloudBlockBlob, string key, string value)
     {
-        if (string.IsNullOrWhiteSpace(value))
+      if (string.IsNullOrWhiteSpace(value))
+      {
+        if (cloudBlockBlob.Metadata.ContainsKey(key))
         {
-            if (cloudBlockBlob.Metadata.ContainsKey(key))
-            {
-                cloudBlockBlob.Metadata.Remove(key);
-            }
+          cloudBlockBlob.Metadata.Remove(key);
         }
-        else
-        {
-            cloudBlockBlob.Metadata[key] = value;
-        }
+      }
+      else
+      {
+        cloudBlockBlob.Metadata[key] = value;
+      }
     }
-    }
+  }
 }

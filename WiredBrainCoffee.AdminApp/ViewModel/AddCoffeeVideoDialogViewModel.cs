@@ -77,30 +77,33 @@ namespace WiredBrainCoffee.AdminApp.ViewModel
 
     public async Task PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
     {
+      // When you set args.Cancel after you await asynchronous code,
+      // args.Cancel has only an effect if you're using a deferral like in this method.
+      // In the finally block the deferral is completed, which says you're done with the async code
+      var deferral = args.GetDeferral();
       try
       {
-        // Cancel always to keep dialog open, as we have async code in this event.
-        // args.Cancel doesn't work after an await statement. So here we always cancel
-        // and if the dialog should be closed, we hide it manually by calling its Hide method
-        args.Cancel = true;
-
         var blobExists = await _coffeeVideoStorage.CheckIfBlobExistsAsync(BlobName);
-
         if (blobExists)
         {
+          args.Cancel = true;
+
           await _messageDialogService.ShowInfoDialogAsync(
             $"A blob with the name \"{BlobName}\" exists already. " +
             $"Please select another name, thanks! :)", "Info");
         }
         else
         {
-          sender.Hide();
           DialogResultIsOk = true;
         }
       }
       catch (Exception ex)
       {
         await _messageDialogService.ShowInfoDialogAsync(ex.Message, "Error");
+      }
+      finally
+      {
+        deferral.Complete();
       }
     }
   }
